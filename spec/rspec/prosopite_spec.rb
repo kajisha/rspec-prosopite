@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Rspec::Prosopite do
+RSpec.describe RSpec::Prosopite do
   it "has a version number" do
-    expect(Rspec::Prosopite::VERSION).not_to be nil
+    expect(RSpec::Prosopite::VERSION).not_to be nil
   end
 
   it "does something useful" do

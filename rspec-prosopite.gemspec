@@ -4,7 +4,7 @@ require_relative "lib/rspec/prosopite/version"
 
 Gem::Specification.new do |spec|
   spec.name = "rspec-prosopite"
-  spec.version = Rspec::Prosopite::VERSION
+  spec.version = RSpec::Prosopite::VERSION
   spec.authors = ["Hiroshi Kajisha"]
   spec.email = ["kajisha@gmail.com"]
 
