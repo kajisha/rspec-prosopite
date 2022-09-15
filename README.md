@@ -1,9 +1,5 @@
 # RSpec::Prosopite
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/prosopite`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
@@ -16,7 +12,31 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+### perform_queries matcher
+
+Use `perform_queries` matcher to detect N+1 query in your spec.
+
+```ruby
+it "N+1" do
+  expect { suspicious_something }.to perform_queries
+end
+```
+
+### allow_stack_paths
+
+If you want to allow some N+1, use allow_stack_paths or ignore_queries, like this:
+
+Except N+1 query in the method:
+```ruby
+expect { suspicious_something }.to perform_queries.allow_stack_paths([/method_name/])
+```
+
+Except N+1 query by SQL:
+```ruby
+expect { suspicious_something }.to perform_queries.ignore_queries([/SELECT \* FROM users/])
+```
+
+More details about `allow_stack_paths` and `ignore_queries`, see [prosopite](https://github.com/charkost/prosopite).
 
 ## Development
 
@@ -26,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rspec-prosopite.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kajisha/rspec-prosopite.
 
 ## License
 
